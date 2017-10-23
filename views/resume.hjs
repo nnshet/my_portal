@@ -1,0 +1,55 @@
+
+{{>header}}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Resume
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    {{#isAuthenticated}}
+                    <form role="form" method="post" enctype="multipart/form-data"  action="/uploadDoc/resume">
+                        <div class="form-group">
+                          <label for="resume"><span class="glyphicon glyphicon-lock"></span> Upload a new Resume </label>
+                          <input type="file"  class="form-control" id="resume_path" name="resume" accept=".pdf"></input>
+                        </div>
+                        <input type="submit" id="uploadResume" class="btn btn-primary" value="Upload"/>
+                    </form>
+                    {{/isAuthenticated}}
+                    <embed src="{{data.completeResult.resume}}" width="800px" height ="800px;" />
+                
+                </div>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Cover Letter
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    {{#isAuthenticated}}
+                    <form role="form" method="post" enctype="multipart/form-data"  action="/uploadDoc/cover">
+                        <div class="form-group">
+                          <label for="resume"><span class="glyphicon glyphicon-lock"></span> Upload a new Resume </label>
+                          <input type="file"  class="form-control" id="cover_path" name="cover" accept=".pdf"></input>
+                        </div>
+                        <input type="submit" id="uploadCover" class="btn btn-primary" value="Upload"/>
+                    </form>
+                    {{/isAuthenticated}}
+                    <embed src="{{data.completeResult.cover_letter}}" width="800px" height ="800px;" />
+                
+                </div>  
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+{{>footer}}

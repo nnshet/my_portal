@@ -1,0 +1,45 @@
+<!-- Modal for Edit Work -->
+  <div class="modal fade" id="modalForEducation" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class=""></span> Update Education Details</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="educationForm">
+            <div class="form-group">
+              <label for="university_name"><span class="glyphicon glyphicon-lock"></span> University Name </label>
+              <input type="text"  class="form-control" id="university_name" name="university_name" value="{{data.college_name}}"></input>
+            </div>
+            <div class="form-group">
+              <label for="degree"><span class="glyphicon glyphicon-user"></span> Degree </label>
+              <input type="text"  class="form-control" id="degree" name="degree" value="{{data.degree}}"></input>
+            </div>
+            <div class="form-group" id="fromWork">
+               Start Date <select id="startmonthForEd" data-start_month="{{data.start_month}}" name="start_month"></select> <select id="startyearForEd" data-start_year="{{data.start_year}}" name="start_year"></select>
+            </div>
+            <div class="form-group" id="toWork">
+                End Date <select id="endmonthForEd" data-end_month="{{data.end_month}}" name="end_month"></select> <select id="endyearForEd" data-end_year="{{data.end_year}}" name="end_year"></select>
+            </div>
+            <div class="form-group">
+                <label for="major"><span class=glyphicon glyphicon-pencil"></span> Major </label>
+                <input type="text" class="form-control" id="major" name="major" value="{{data.major}}"></input>
+            </div>
+            <div class="form-group">
+                <label for="gpa"><span class=glyphicon glyphicon-pencil"></span> GPA </label>
+                <input type="text" class="form-control" id="gpa" name="gpa" value="{{data.gpa}}"></input>
+            </div>
+            
+            <input type="button" id="updateEducationFromModal" class="btn btn-primary" value="update"/>
+          </form>
+          <input type="hidden" id="eduId" value="{{data.id}}"/>
+          <input type="hidden" id="typeEdOp"/>
+        </div>
+       
+      </div>
+    </div>
+    </div>
+    

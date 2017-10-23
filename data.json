@@ -1,0 +1,70 @@
+{
+    "_id" : ObjectId("59436911ee8cea03c60f5577"),
+    "personal" : {
+        "first_name" : "Neha",
+        "last_name" : "Shet",
+        "address" : {
+            "street_name" : "601 Summit Ave",
+            "address_line2" : "#284 Apt",
+            "city" : "Arlington",
+            "state" : "TX",
+            "country" : "US",
+            "pincode" : "76013"
+        },
+        "birth_date" : "06/07/1992",
+        "phone_number" : "3133072837",
+        "email" : "nehashet7@gmail.com",
+        "profile_image" : {
+            "pic_url" : "profile/image/neha_shet.jpg",
+            "width" : "400px"
+        }
+    },
+    "user_id" : "neha_shet",
+    "password" : "1234",
+    "summary" : "Dedicated web developer with almost three years of experience having exposure to MEAN stack – MongoDB, Express.js, AngularJS, Node.js. Worked on front end technologies such as HTML, JavaScript, jQuery, AJAX, Bootstrap, and Responsive web design. I am adapted to work with Agile workflows in my projects. I have a great passion for web development and sound understanding of object oriented programming and design.I enjoy learning new technologies that expedite the development process, and try to write my code in a way that is extremely modular and reusable. I am an excellent team player with good communication, interpersonal, analytical and problem solving skills.Currently I am pursuing MS in Computer Science at University of Texas at Arlington and actively seeking summer internship positions.",
+    "caption" : "",
+    "github" : "https://github.com/nnshet",
+    "linkedin" : "https://www.linkedin.com/in/nehashet/",
+    "no_experience" : "2.7",
+    "resume" : "profile/resume/neha_shet.pdf",
+    "cover_letter" : "profile/cover_letter/neha_shet.pdf",
+    "education" : [ 
+        {
+            "id" : "1234",
+            "degree" : "Master of Science",
+            "major" : "Computer Science",
+            "gpa" : "4.0",
+            "start_month" : "August",
+            "start_year" : "2016",
+            "end_month" : "May",
+            "end_year" : "2018",
+            "college_name" : "University of Texas at Arlington"
+        }, 
+        {
+            "id" : "5689",
+            "degree" : "Bachelor of Engineer",
+            "major" : "Information Technology",
+            "gpa" : "70%",
+            "start_month" : "July",
+            "start_year" : "2009",
+            "end_month" : "May",
+            "end_year" : "2013",
+            "college_name" : "Goa University"
+        }
+    ],
+    "work" : [ 
+        {
+            "work_id" : "1234",
+            "start_month" : "Dec",
+            "end_month" : "Jul",
+            "start_year" : "2013",
+            "end_year" : "2016",
+            "job_title" : "Senior Software Engineer",
+            "company_name" : "Persistent Systems Limited",
+            "state" : "Goa",
+            "country" : "India",
+            "summary" : "Persistent Systems Limited is a well-respected technology company focused on delivering best in class innovative solutions. Within 28 months from my absorption as Software Engineer, I was promoted to Senior Software Engineer in April 2016. At Persistent Systems Limited, I got the opportunity to take on new challenges and responsibilities and improve management skillss."
+        }
+    ],
+    "skills" : "JavaScript, Node.js, AngularJS, Express.js, Hogan.js, Handlebars.js, HTML 5, CSS, CSS3,jQuery, AJAX, Bootstrap, PHP, RESTful web services, SOAP web services"
+}

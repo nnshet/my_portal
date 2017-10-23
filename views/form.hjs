@@ -1,0 +1,13 @@
+{{>header}}
+    <form>
+    
+        <label>Name:</label>
+        <input type="text" name="name" id="name" value="{{data.name}}"/>
+        <label>Place:</label>
+        <input type="text" name="place" id="place"/>
+        <button type="button" id="submitData">Submit</button>
+        <button id="getPlace" type="button">getplace</button>
+        <div id="responseData">
+        </div>
+    </form>
+    {{>footer}}

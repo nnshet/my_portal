@@ -1,0 +1,231 @@
+{{>header}}
+
+    <div class="container" id="profilePage">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>{{data.personal.first_name}}&nbsp;{{data.personal.last_name}}</strong>
+                    </h2>
+                    <hr>
+                </div>
+               
+                <div class="col-md-12">
+                {{#isAuthenticated}}
+                <div class="pull-right">
+                    <a id="editSkills"><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+                {{/isAuthenticated}}
+                <table>
+                <tr>
+                <td class="col-md-4"> Skill Set </td>
+                <td class="col-md-8" id="skills">{{data.completeResult.skills}}</td>
+                </tr>
+                <tr>
+                <td class="col-md-4">Github Link</td>
+                <td class="col-md-8"><a href="{{data.completeResult.github}}" id="githubLink">{{data.completeResult.github}}</a></td>
+                </tr>
+                <tr>
+                <td class="col-md-4"> LinkedIn Link</td>
+                <td class="col-md-8"><a href="{{data.completeResult.linkedin}}" id="linkedinLink">{{data.completeResult.linkedin}}</a></td>
+                </tr>
+                
+                </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Education</strong>
+                    </h2>
+                    <hr>
+                </div>
+               
+                
+                <div class="col-md-12">
+                {{#data.completeResult.education}}
+                <div class="pull-right">
+                  {{#isAuthenticated}}
+                        <a class="editEd" data-id="{{id}}" data-toggle="modal"  data-target="#modal-div"><span class="glyphicon glyphicon-pencil"></span></a>
+                    
+                {{/isAuthenticated}}
+                </div>
+                <table>
+               
+                <tr class="intro-text text-center">
+                    <th>{{degree}}</th> 
+                </tr>
+               
+                
+                <tr class="spaceUnder"> </tr>
+                 
+                <tr>
+                <td class="col-md-6"> University Name </td>
+                <td class="col-md-6">{{college_name}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-6">Degree</td>
+                    <td class="col-md-6">{{degree}} in {{major}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-6">Overall GPA</td>
+                    <td class="col-md-6">{{gpa}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-6">{{#completed}}End Date {{/completed}}{{^completed}}Expleted Completion {{/completed}}</td>
+                    <td class="col-md-6">{{end_date}}</td>
+                </tr>            
+                </table>
+                
+                 {{/data.completeResult.education}}
+                </div>
+              
+              <div id="modal-div"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Work Experience</strong>
+                    </h2>
+                    <hr>
+                    
+                </div>
+               
+                <div class="col-md-12">
+                 {{#isAuthenticated}}
+                <div class="pull-right">
+                    <a id="addWork"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+                 <br/>
+                {{/isAuthenticated}}
+               
+                {{#data.completeResult.work}}
+                {{#isAuthenticated}}
+                    <div class="pull-right">
+                        <a class="editWork" data-workid="{{work_id}}" ><span class="glyphicon glyphicon-pencil"></span></a>
+                    </div>
+                {{/isAuthenticated}}
+                <span class="intro-text text-left">
+                   <b>{{job_title}}</b>
+                </span>
+                
+                <span class="text-right">
+                    <b>({{start_month}} {{start_year}} - {{end_month}} {{end_year}}) </b>
+                </span>
+                <div class="intro-text" id="cname_{{work_id}}"><small>{{company_name}}</small></div>
+                <div class="intro-text"><small>{{state}},{{country}}</small></div>
+                <div><span id="s_{{work_id}}">{{summary}}</span></div>
+                           
+                <input type="hidden" id="companyName_{{work_id}}" value="{{company_name}}" />
+                <input type="hidden" id="jobTitle_{{work_id}}" value="{{job_title}}" />
+                <input type="hidden" id="startMonth_{{work_id}}" value="{{start_month}}"/>
+                <input type="hidden" id="startYear_{{work_id}}" value="{{start_year}}"/>
+                <input type="hidden" id="endMonth_{{work_id}}" value="{{end_month}}"/>
+                <input type="hidden" id="endYear_{{work_id}}" value="{{end_year}}"/>
+                <input type="hidden" id="summary_{{work_id}}" value="{{summary}}" />
+                <input type="hidden" id="state_{{work_id}}" value="{{state}}" />
+                <input type="hidden" id="country_{{work_id}}" value="{{country}}" />
+                <br/>
+                 {{/data.completeResult.work}}
+                </div>
+               
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+{{>footer}}
+
+
+<!-- Modal for Edit Skills -->
+  <div class="modal fade" id="modalForSkills" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-pencil"></span> Update Skills</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="editForSkills"><span class="glyphicon glyphicon-user"></span> Skills </label>
+              <textarea class="form-control" id="editForSkills" name="editForSkills" cols="50" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="editGithub"><span class="glyphicon glyphicon-link"></span> Github Link </label>
+              <input class="form-control" id="editGithub" name="editGithub" type="text"></input>
+            </div>
+            <div class="form-group">
+              <label for="editLinkedin"><span class="glyphicon glyphicon-link"></span> LinkedIn Link </label>
+              <input class="form-control" id="editLinkedin" name="editLinkedin" type="text"></input>
+            </div>
+            
+            <input type="button" id="updateSkillsFromModal" class="btn btn-primary" value="update"/>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+</div>
+<!-- Modal for Edit Work -->
+  <div class="modal fade" id="modalForWork" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class=""></span> Update Work Details</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="company_name"><span class="glyphicon glyphicon-lock"></span> Company Name </label>
+              <input type="text"  class="form-control" id="company_name" name="company_name"></input>
+            </div>
+            <div class="form-group">
+              <label for="company_state"><span class="glyphicon glyphicon-lock"></span> State </label>
+              <input type="text"  class="form-control" id="company_state" name="company_state"></input>
+            </div>
+            <div class="form-group">
+              <label for="company_country"><span class="glyphicon glyphicon-lock"></span> Country </label>
+              <input type="text"  class="form-control" id="company_country" name="company_country"></input>
+            </div>
+            <div class="form-group">
+              <label for="job_title"><span class="glyphicon glyphicon-user"></span> Job Title </label>
+              <input type="text"  class="form-control" id="job_title" name="job_title"></input>
+            </div>
+            <div class="form-group" id="fromWork">
+               Start Date <select id="startmonth"></select> <select id="startyear"></select>
+            </div>
+            <div class="form-group" id="toWork">
+                End Date <select id="endmonth"></select> <select id="endyear"></select>
+            </div>
+            <div class="form-group">
+                <label for="summaryWork"><span class=glyphicon glyphicon-pencil"></span> Summary </label>
+                <textarea class="form-control" id="summaryWork" name="summaryWork" cols="50" rows="10"></textarea>
+            </div>
+            <input type="hidden" id="workID"/>
+            <input type="hidden" id="typeOp"/>
+            <input type="button" id="updateWorkFromModal" class="btn btn-primary" value="update"/>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+</div>

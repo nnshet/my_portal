@@ -1,0 +1,38 @@
+{
+  "name": "my_portal",
+  "version": "1.0.0",
+  "description": "my first web application on cloud",
+  "private": true,
+  "config" : { "port" : "8080" },
+  "scripts": {
+      
+    "start": "node app.js",
+    "deploy":"gcloud app deploy"
+    
+  },
+ "license": "student",
+    "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongodb": "^2.0.43",
+    "path":"0.12.7",
+    "hogan.js":"^1.0.0",
+    "passport":"^0.2.0",
+    "formidable":"^1.1.1",
+    
+    "passport-local":"^1.0.0",
+    "hjs":"^0.0.6",
+    "express-session":"^1.15.0"
+        
+  },
+     "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+     },
+    
+     "engines" : { "node" : ">0.10.29",
+                    "npm" : "~1.0.20"
+                 }
+}
+  
+  
